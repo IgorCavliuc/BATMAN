@@ -1,38 +1,35 @@
-.batman-store{
-  &__banner{
+.batman-store {
+  &__banner {
     display: flex;
     width: 920px;
     height: 400px;
     background: linear-gradient(to right, rgb(0, 4, 40), rgb(111, 0, 0));
     border-radius: 24px;
-    padding-left : 50px;
+    padding-left: 50px;
     border-style: solid;
     overflow: hidden;
 
-
-    &_container{
+    &_container {
       display: flex;
       flex-direction: column;
       justify-content: center;
 
-
-
-      h3{
+      h3 {
         font-weight: 600;
         font-size: 24px;
         line-height: 32px;
-        color: #FFFFFF;
+        color: #ffffff;
         margin-bottom: 8px;
       }
-      & > p{
+      & > p {
         font-weight: 400;
         font-size: 14px;
         line-height: 24px;
-        color: #FFFFFF;
+        color: #ffffff;
         margin-bottom: 16px;
       }
-      button{
-        background: #FFFFFF;
+      button {
+        background: #ffffff;
         box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.250929);
         border-radius: 16px;
         padding: 18px 43px;
@@ -40,16 +37,25 @@
         font-size: 14px;
         line-height: 20px;
         text-align: center;
-        color: #11142D;
+        color: #11142d;
         border: none;
         cursor: pointer;
         transition: 0.5s;
 
-        &:hover{
+        &:hover {
           box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.250929);
-
         }
       }
     }
   }
+}
+
+.carousel-control-next-icon {
+  position: absolute;
+  right: 10px;
+}
+
+.carousel-control-prev-icon {
+  position: absolute;
+  left: 10px;
 }
