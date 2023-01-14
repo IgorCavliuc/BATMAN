@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux'
 const Transport = () => {
   const dispatch = useDispatch()
   const { items } = useSelector(dataTransportSlice)
+  console.log(items)
 
   useEffect(() => {
     getAllProducts().then((res) => dispatch(getAllTransport(res)))
