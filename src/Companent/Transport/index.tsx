@@ -4,6 +4,7 @@ import { ProductCard } from '../../ui'
 import { getAllTransport } from '../../Redux/Products/transportSlice'
 import { dataTransportSlice } from '../../Redux/Products/transportSlice'
 import { useSelector, useDispatch } from 'react-redux'
+import {IProduct} from "../../type";
 
 const Transport = () => {
   const dispatch = useDispatch()
@@ -16,7 +17,9 @@ const Transport = () => {
 
   return (
     <div className="batman-store__container">
-      <ProductCard />
+        {items?.map((item:IProduct) => (
+            <ProductCard {...item}/>
+        ))}
     </div>
   )
 }
