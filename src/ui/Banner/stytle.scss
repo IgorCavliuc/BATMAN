@@ -1,4 +1,12 @@
 .batman-store {
+
+  &__container{
+    &_banner{
+      overflow: hidden;
+      width: 1000px;
+
+    }
+  }
   &__banner {
     display: flex;
     width: 920px;
@@ -8,6 +16,13 @@
     padding-left: 50px;
     border-style: solid;
     overflow: hidden;
+
+    &--orange{
+      background: linear-gradient(to right, rgb(0, 4, 40), rgb(234,94,36));
+    }
+    &--yellow{
+      background: linear-gradient(to right, rgb(0, 4, 40),  rgb(255,213,70));
+    }
 
     &_container {
       display: flex;
