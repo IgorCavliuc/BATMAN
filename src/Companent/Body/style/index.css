@@ -1,0 +1,31 @@
+.batman-store__container {
+  margin: 0 34px;
+  overflow: hidden;
+}
+
+.batman-store__container > p {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  color: #11142d;
+  margin-top: 47px;
+}
+
+.batman-store__container h1 {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 60px;
+  letter-spacing: -1px;
+  color: #11142d;
+  margin-top: 10px;
+}
+
+.batman-store__container_banner {
+  margin-top: 30px;
+}
+
+.batman-store__container img {
+  margin-left: 30px;
+  border-radius: 0 0 24px 0;
+}
+/*# sourceMappingURL=index.css.map */
