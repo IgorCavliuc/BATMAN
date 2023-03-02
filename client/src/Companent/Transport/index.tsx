@@ -13,7 +13,7 @@ const Transport = () => {
 
   useEffect(() => {
     getAllProducts().then((res) => dispatch(getAllTransport(res)));
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="batman-store__container">
