@@ -8,7 +8,7 @@ interface PropNavigation {
 }
 
 const NavigationItem = ({ item }: PropNavigation) => {
-  const { id, img, value } = item;
+  const { code, img, value } = item;
 
   const [state, setState] = useState("");
 
@@ -21,7 +21,7 @@ const NavigationItem = ({ item }: PropNavigation) => {
             ? "batman-store__header-container_navigation-list-item--active"
             : "batman-store__header-container_navigation-list-item"
         }
-        to={`/${id ? id : null}`}
+        to={`/${code ? code : null}`}
       >
         {value}
       </NavLink>

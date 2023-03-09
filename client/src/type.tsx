@@ -1,5 +1,5 @@
 export interface INavigationType {
-  id: string;
+  code: string;
   value: string;
   img: string;
 }

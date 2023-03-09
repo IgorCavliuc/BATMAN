@@ -3,6 +3,7 @@ import NavigationList from "./NavigationList";
 import NavigationProfile from "./NavigationProfile";
 import ProductCard from "./ProductCard";
 import Banner from "./Banner";
+import MainTitle from "./MainTitle";
 
 export {
   NavigationItem,
@@ -10,4 +11,5 @@ export {
   NavigationProfile,
   Banner,
   ProductCard,
+  MainTitle,
 };

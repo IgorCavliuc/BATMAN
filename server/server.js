@@ -43,15 +43,15 @@ app.get("/navigation", (req, res) => {
     .catch(() => handleError(res, "Something goes wrong..."));
 });
 
-app.get("/products", (req, res) => {
-  const products = [];
-
-  db.collection("products")
-    .find()
-    .sort({ title: 1 })
-    .forEach((product) => products.push(product))
-    .then(() => {
-      res.status(200).json(products);
-    })
-    .catch(() => handleError(res, "Something goes wrong..."));
+app.get("/products", async (req, res) => {
+  try {
+    const products = await db.collection("products")
+                             .find(req?.query)
+                             .sort()
+                             .toArray();
+    res.status(200).json(products);
+  } catch (error) {
+    handleError(res, "Something went wrong...");
+  }
 });
+
