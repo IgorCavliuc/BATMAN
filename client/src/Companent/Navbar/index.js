@@ -9,7 +9,6 @@ const Navbar = () => {
       <div className="batman-store__header-container">
         <div className="batman-store__header-container_logo">
           <NavLink to="/">
-            {" "}
             <p>
               Batman <span>.</span>
             </p>

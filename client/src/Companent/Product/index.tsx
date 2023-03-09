@@ -1,12 +1,10 @@
 import { useEffect } from "react";
-import { getAllProducts } from "../../server";
+import { connect } from "react-redux";
+import { useLocation } from 'react-router-dom';
 import { MainTitle, ProductCard } from "../../ui";
 import { getAllProduct } from "../../Redux/Products/productSlice";
-import { dataProductSlice } from "../../Redux/Products/productSlice";
-import { connect } from "react-redux";
 import { IProduct } from "../../type";
-import { useLocation } from 'react-router-dom';
-
+import { getAllProducts } from "../../server";
 import './style/index.scss'
 
 interface Props {
@@ -18,19 +16,26 @@ const Product = ({ items, getAllProduct }: Props) => {
   const location = useLocation()
 
   useEffect(() => {
-    getAllProducts(location?.pathname?.split('/')[1]).then((res) => getAllProduct(res));
+    const fetchData = async () => {
+      const res = await getAllProducts(location?.pathname?.split('/')[1]);
+      getAllProduct(res);
+    };
+    fetchData();
   }, [getAllProduct, location?.pathname]);
 
   const title_name =  location?.pathname?.split('/')[1]?.split('_').join(' ').toUpperCase()
+  
+  const renderProductCards = () => {
+    return items?.map((item: IProduct) => (
+      <ProductCard {...item} key={item.id} />
+    ))
+  }
+
   return (
     <div className="batman-store_product-list">
        <MainTitle>{` According to your request, we found the following ${title_name}`}</MainTitle>
     <div className="batman-store_product-list-wrapper">
-     
-
-      {items?.map((item: IProduct) => (
-        <ProductCard {...item} />
-      ))}
+      {renderProductCards()}
       </div>
     </div>
   );

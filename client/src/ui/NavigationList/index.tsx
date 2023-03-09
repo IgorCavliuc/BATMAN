@@ -1,13 +1,13 @@
 import { NavigationItem } from "../index";
 import "./stytle.scss";
-import { useState, FC, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { INavigationType } from "../../type";
 const { getAllNavigate } = require("../../server/index");
 // import HomeIco from '../img/home.svg'
 
-interface CurrentNavigation {
-  dataNavigation: INavigationType[];
-}
+// interface CurrentNavigation {
+//   dataNavigation: INavigationType[];
+// }
 
 const NavigationList = () => {
   const [dataNavigation, setDataNavigation] = useState([]);
@@ -20,7 +20,7 @@ const NavigationList = () => {
   return (
     <nav className="batman-store__header-container_navigation">
       <ul className="batman-store__header-container_navigation-list">
-        {dataNavigation?.map((item, i) => {
+        {dataNavigation?.map((item:INavigationType, i) => {
           return <NavigationItem key={i} item={item} />;
         })}
       </ul>

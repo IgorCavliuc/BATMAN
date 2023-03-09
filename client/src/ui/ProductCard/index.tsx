@@ -9,6 +9,7 @@ const ProductCard = ({
   discount,
   id,
   images,
+  currency,
   price,
   rating,
   stock,
@@ -26,7 +27,7 @@ const ProductCard = ({
 
       </div>
       <div className="batman-ui__card_price">
-        <p><span>Price:</span> {price} MDL</p>
+        <p><span>Price:</span> {price} {currency ?? "MDL" }</p>
         {  discount?.value
 ? <h4>-{  discount?.value + discount?.type}</h4>:null}
       </div>

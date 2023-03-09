@@ -45,13 +45,13 @@ app.get("/navigation", (req, res) => {
 
 app.get("/products", async (req, res) => {
   try {
-    const products = await db.collection("products")
-                             .find(req?.query)
-                             .sort()
-                             .toArray();
+    const products = await db
+      .collection("products")
+      .find(req?.query)
+      .sort()
+      .toArray();
     res.status(200).json(products);
   } catch (error) {
     handleError(res, "Something went wrong...");
   }
 });
-

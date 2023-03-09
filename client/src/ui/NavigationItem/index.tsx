@@ -1,5 +1,4 @@
 import "./stytle.scss";
-import { useState } from "react";
 import { INavigationType } from "../../type";
 import { NavLink } from "react-router-dom";
 
@@ -10,7 +9,7 @@ interface PropNavigation {
 const NavigationItem = ({ item }: PropNavigation) => {
   const { code, img, value } = item;
 
-  const [state, setState] = useState("");
+
 
   return (
     <li>
@@ -21,7 +20,7 @@ const NavigationItem = ({ item }: PropNavigation) => {
             ? "batman-store__header-container_navigation-list-item--active"
             : "batman-store__header-container_navigation-list-item"
         }
-        to={`/${code ? code : null}`}
+        to={`/${code??''}`}
       >
         {value}
       </NavLink>

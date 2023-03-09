@@ -10,8 +10,8 @@ function App() {
     <div className="batman-store">
       <Navbar />
       <Routes>
-        <Route path="/home" element={<Body />} />
-        <Route path={location?.pathname} element={<Product />} />
+        <Route  path="/" element={<Body />} />
+       {location?.pathname ? <Route path={location?.pathname} element={<Product />} />:null}
       </Routes>
     </div>
   );

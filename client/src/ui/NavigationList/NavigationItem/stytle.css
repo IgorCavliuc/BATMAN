@@ -1,5 +1,6 @@
 .batman-store__header-container_navigation-list-item {
-  padding: 18px 26px;
+  padding: 18px 26px 18px 0;
+
   border-radius: 0px 12px 12px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13,12 +14,13 @@
   text-decoration: none;
 }
 
-.batman-store__header-container_navigation-list-item > img {
+.batman-store__header-container_navigation-list-item>img {
   margin-right: 18px;
 }
 
 .batman-store__header-container_navigation-list-item--active {
-  padding: 18px 26px;
+  padding: 18px 26px 18px 0;
+
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -33,9 +35,8 @@
   text-decoration: none;
 }
 
-.batman-store__header-container_navigation-list-item:hover:not(
-    .batman-store__header-container_navigation-list-item--active
-  ) {
+.batman-store__header-container_navigation-list-item:hover:not(.batman-store__header-container_navigation-list-item--active) {
   color: #11142d;
 }
+
 /*# sourceMappingURL=stytle.css.map */
