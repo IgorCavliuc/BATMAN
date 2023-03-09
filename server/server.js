@@ -55,3 +55,16 @@ app.get("/products", async (req, res) => {
     handleError(res, "Something went wrong...");
   }
 });
+
+app.get("/users", async (req, res) => {
+  try {
+    const users = await db
+      .collection("users")
+      .find(req?.query)
+      .sort()
+      .toArray();
+    res.status(200).json(users);
+  } catch (error) {
+    handleError(res, "Something went wrong...");
+  }
+});
