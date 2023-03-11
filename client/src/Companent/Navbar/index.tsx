@@ -28,7 +28,7 @@ const Navbar = ({userState}:any) => {
         <NavigationList />
       </div>
      
-{userState?.user[0] ?  <NavigationProfile data={userState?.user[0]}/> : <NonProfile/> }
+{userState?.user[0] ? <NavigationProfile data={userState?.user[0]}/>  : <NonProfile/> }
 
     </div>
   );

@@ -1,16 +1,21 @@
-.sign-in-content{
+.sign-up-content{
     display: flex;
     justify-content: space-between;
-    height: 75vh;
-    width: 80%;
+    height: 100vh;
+    width: 100%;
     align-items: center;
     text-align: center;
+
+    & >*{
+        width: 50%;
+    }
 
 }
 .form{
     display: flex;
     flex-direction: column;
     width: 700px;
+    margin: 0 auto;
     
 }
 .form h1{
@@ -30,7 +35,6 @@
     height: 40px;
 }
 .form button{
-    font-family: "Poppins", Sans-serif;
     font-size: 15px;
 font-weight: 500;
 line-height: 15px;
@@ -41,9 +45,16 @@ border-radius: 15px 15px 15px 15px;
 padding: 12px 73px 12px 73px;
 }
 
-.sign-in-image img{
+.sign-up-image{
+    background: #F7F8F9;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+.sign-up-image img{
     border-radius: 30px;
-    width: 70%;
+    width: 90%;
 }
 .submit-button{
     display: flex;

@@ -11,6 +11,7 @@ interface NavigationProfileType{
 
 const NavigationProfile = ({data}:NavigationProfileType) => {
   return (
+      <Link to='/profile' >
     <div className="batman-store__header-profile">
       <div className="batman-store__header-profile-img">
       <img src={data?.img} alt="AvatarIco"/>
@@ -21,6 +22,7 @@ const NavigationProfile = ({data}:NavigationProfileType) => {
       </div>
       {/*<img src={ArrowIco} alt="ArrowIco"/>*/}
     </div>
+    </Link >
   );
 };
 

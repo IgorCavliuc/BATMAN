@@ -1,8 +1,9 @@
 import React from "react";
-import "./SignUp.css";
-// import SignInImage from "../../assets/images/dg_1-197-1-min.jpg";
+import "./index.scss";
 import { Link } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
+
+const AsigAdmin = require('../ico/admin_asig.png')
 
 type FormData = {
   name: string;
@@ -27,7 +28,7 @@ function SignUp() {
   };
 
   return (
-    <div className="sign-in-content content">
+    <div className="sign-up-content content">
       <form onSubmit={handleSubmit(onSubmit)} className="form">
         <h1>Sign Up</h1>
         {/* Name */}
@@ -90,8 +91,8 @@ function SignUp() {
           <Link to="/signin">Sign In</Link>
         </div>
       </form>
-      <div className="sign-in-image">
-        <img src="" alt="Sign In" />
+      <div className="sign-up-image">
+        <img src={AsigAdmin} alt="Sign In" />
       </div>
     </div>
   );
