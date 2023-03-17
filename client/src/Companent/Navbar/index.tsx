@@ -27,8 +27,8 @@ const Navbar = ({userState}:any) => {
         </div>
         <NavigationList />
       </div>
-     
-{userState?.user[0] ? <NavigationProfile data={userState?.user[0]}/>  : <NonProfile/> }
+
+{/*{sessionStorage.getItem('users') ?  <NavigationProfile data={userState?.user[0]}/> : <NonProfile/>}*/}
 
     </div>
   );

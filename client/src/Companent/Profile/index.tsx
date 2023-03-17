@@ -1,18 +1,22 @@
 import {useEffect} from "react";
-import {getUser} from "../../server";
+import {getSession, getUser} from "../../server";
 import {getAllUser} from "../../Redux/User/userSlice";
 import {connect} from "react-redux";
 
 
 const Profile =({getAllUser, user}:any)=>{
-
+useEffect(()=>{
+    getSession().then(res => console.log(res))
+},[])
 
 useEffect(()=>{
-    if(!user) {
-        const user = JSON.parse(sessionStorage.getItem("users") || '')[0]
-        getUser(user?.login, user?.password).then(res => getAllUser(res));
+    if(sessionStorage.getItem('users')) {
+            const user = JSON.parse(sessionStorage.getItem("users") || '[]')
+            getUser(user?.login, user?.password).then(res => getAllUser(res));
+    }else{
+        window.location.pathname = '/signin'
     }
-}, [getAllUser, user])
+}, [getAllUser,sessionStorage, user])
 
     return(
         <div>

@@ -1,7 +1,9 @@
 import { NavigationItem } from "../index";
 import "./stytle.scss";
-import { useState, useEffect } from "react";
+import {  useEffect } from "react";
 import { INavigationType } from "../../type";
+import {connect} from "react-redux";
+import { setAllNavigation} from "../../Redux/Navigation/navigationSlice";
 const { getAllNavigate } = require("../../server/index");
 // import HomeIco from '../img/home.svg'
 
@@ -9,18 +11,17 @@ const { getAllNavigate } = require("../../server/index");
 //   dataNavigation: INavigationType[];
 // }
 
-const NavigationList = () => {
-  const [dataNavigation, setDataNavigation] = useState([]);
-
+const NavigationList = ({navigation, setAllNavigation}:any) => {
   useEffect(() => {
+if(navigation?.items?.length <1) {
     getAllNavigate()
-      //@ts-ignore
-      .then((res) => setDataNavigation(res));
-  }, []);
+        .then((res:any) => setAllNavigation(res));
+}
+  }, [navigation?.items, setAllNavigation]);
   return (
     <nav className="batman-store__header-container_navigation">
       <ul className="batman-store__header-container_navigation-list">
-        {dataNavigation?.map((item:INavigationType, i) => {
+        {navigation?.items?.map((item:INavigationType, i:string) => {
           return <NavigationItem key={i} item={item} />;
         })}
       </ul>
@@ -28,4 +29,9 @@ const NavigationList = () => {
   );
 };
 
-export default NavigationList;
+
+const mapStateToProps = (state: any) => ({
+    navigation: state?.navigationSlice,
+});
+
+export default connect(mapStateToProps, {setAllNavigation})(NavigationList);
