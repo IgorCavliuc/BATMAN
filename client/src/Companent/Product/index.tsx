@@ -24,18 +24,16 @@ const Product = ({ items, getAllProduct }: Props) => {
   }, [getAllProduct, location?.pathname]);
 
   const title_name =  location?.pathname?.split('/')[1]?.split('_').join(' ').toUpperCase()
-  
-  const renderProductCards = () => {
-    return items?.map((item: IProduct) => (
-      <ProductCard {...item} key={item.id} />
-    ))
-  }
+
+
 
   return (
     <div className="batman-store_product-list">
        <MainTitle>{` According to your request, we found the following ${title_name}`}</MainTitle>
     <div className="batman-store_product-list-wrapper">
-      {renderProductCards()}
+      {items?.map((item, i) => {
+        return <ProductCard {...item} key={i}/>
+      })}
       </div>
     </div>
   );

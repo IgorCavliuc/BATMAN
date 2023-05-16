@@ -1,6 +1,6 @@
 .batman-store__container_banner {
   overflow: hidden;
-  width: 978px;
+  width: 1000px;
 }
 
 .batman-store__banner {
@@ -9,11 +9,7 @@
   display: flex;
   width: 920px;
   height: 400px;
-  background: -webkit-gradient(linear,
-      left top,
-      right top,
-      from(#000428),
-      to(#6f0000));
+  background: -webkit-gradient(linear, left top, right top, from(#000428), to(#6f0000));
   background: linear-gradient(to right, #000428, #6f0000);
   border-radius: 24px;
   padding-left: 50px;
@@ -22,20 +18,12 @@
 }
 
 .batman-store__banner--orange {
-  background: -webkit-gradient(linear,
-      left top,
-      right top,
-      from(#000428),
-      to(#ea5e24));
+  background: -webkit-gradient(linear, left top, right top, from(#000428), to(#ea5e24));
   background: linear-gradient(to right, #000428, #ea5e24);
 }
 
 .batman-store__banner--yellow {
-  background: -webkit-gradient(linear,
-      left top,
-      right top,
-      from(#000428),
-      to(#ffd546));
+  background: -webkit-gradient(linear, left top, right top, from(#000428), to(#ffd546));
   background: linear-gradient(to right, #000428, #ffd546);
 }
 

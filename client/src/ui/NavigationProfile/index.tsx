@@ -2,23 +2,26 @@
 // import ArrowIco from '../img/small-right.svg'
 import { Link } from "react-router-dom";
 import "./style/index.scss";
+import {connect} from "react-redux";
+import {getAllUser} from "../../Redux/User/userSlice";
 
 interface NavigationProfileType{
-  data:any
+  user:any
 }
 
 
 
-const NavigationProfile = ({data}:NavigationProfileType) => {
+const NavigationProfile = ({user}:NavigationProfileType) => {
+const {name, lastname, root,img} =user?.user[0]
   return (
       <Link to='/profile' >
     <div className="batman-store__header-profile">
       <div className="batman-store__header-profile-img">
-      <img src={data?.img} alt="AvatarIco"/>
+      <img src={img} alt="AvatarIco"/>
       </div>
       <div className="batman-store__header-profile_name-status">
-        <p className="batman-store__header-profile_name">{data?.lastname} {data?.name}</p>
-        <p className="batman-store__header-profile_status">{data?.root} account</p>
+        <p className="batman-store__header-profile_name">{lastname} {name} </p>
+        <p className="batman-store__header-profile_status">{root} account</p>
       </div>
       {/*<img src={ArrowIco} alt="ArrowIco"/>*/}
     </div>
@@ -26,4 +29,10 @@ const NavigationProfile = ({data}:NavigationProfileType) => {
   );
 };
 
-export default NavigationProfile;
+
+
+const mapStateToProps = (state: any) => ({
+  user: state?.userSlice,
+});
+
+export default connect(mapStateToProps, )(NavigationProfile);

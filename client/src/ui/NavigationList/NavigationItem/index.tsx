@@ -25,6 +25,7 @@ const NavigationItem = ({ item }: PropNavigation) => {
       {img ? <img src={img} alt="HomeIco" /> : null}
       </div>
         {value}
+
       
     </li>
     </NavLink>

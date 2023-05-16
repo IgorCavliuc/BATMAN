@@ -3,6 +3,15 @@
     &_banner {
       overflow: hidden;
       width: 1000px;
+      & .carousel-item {
+        display: none;
+        transform: translateX(-100%);
+      }
+      & .carousel-item.active {
+        display: block;
+        transform: translateX(0);
+        transition: 1s;
+      }
     }
   }
   &__banner {
@@ -63,12 +72,38 @@
   }
 }
 
-.carousel-control-next-icon {
+.carousel.slide {
+  position: relative;
+}
+.carousel-control-next {
   position: absolute;
   right: 10px;
+  top: 0;
+  height: 90%;
+  width: 100px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
-
-.carousel-control-prev-icon {
+.carousel-control-prev {
   position: absolute;
   left: 10px;
+  top: 0;
+  height: 90%;
+  width: 10px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
+
+// .carousel-control-next-icon {
+//   position: absolute;
+//   right: 10px;
+// }
+
+// .carousel-control-prev-icon {
+//   position: absolute;
+//   left: 10px;
+// }

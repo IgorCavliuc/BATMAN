@@ -3,7 +3,8 @@ import "./index.scss";
 import { Link } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 
-const AsigAdmin = require('../ico/admin_asig.png')
+const AsigAdmin = require("../ico/mainlogo.png");
+
 
 type FormData = {
   name: string;
@@ -28,7 +29,7 @@ function SignUp() {
   };
 
   return (
-    <div className="sign-up-content content">
+    <div className="batman-ui--sign-up-content content">
       <form onSubmit={handleSubmit(onSubmit)} className="form">
         <h1>Sign Up</h1>
         {/* Name */}
@@ -86,12 +87,15 @@ function SignUp() {
         {errors?.password && (
           <div style={{ color: "#3a48f5" }}>*{errors.password.message}</div>
         )}
-        <div className="submit-button">
+        <div className="batman-ui--submit-button">
           <button type="submit">Submit</button>
           <Link to="/signin">Sign In</Link>
         </div>
+
+
+
       </form>
-      <div className="sign-up-image">
+      <div className="batman-ui--sign-up-image">
         <img src={AsigAdmin} alt="Sign In" />
       </div>
     </div>

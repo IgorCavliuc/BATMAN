@@ -1,7 +1,7 @@
-import "./stytle.scss";
-const AvatarBanner = require("../img/litlle-batman.png");
-const TeamIco = require("../img/comand.png");
-const OfficeManIco = require("../img/avatar-man.png");
+import './stytle.scss'
+const AvatarBanner = require('../img/litlle-batman.png')
+const TeamIco = require('../img/comand.png')
+const OfficeManIco = require('../img/avatar-man.png')
 
 const Banner = () => {
   return (
@@ -59,7 +59,7 @@ const Banner = () => {
         data-bs-slide="prev"
       >
         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Предыдущий</span>
+        <span className="visually-hidden">{"<"}</span>
       </button>
       <button
         className="carousel-control-next"
@@ -68,7 +68,7 @@ const Banner = () => {
         data-bs-slide="next"
       >
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Следующий</span>
+        <span className="visually-hidden"> {">"}</span>
       </button>
     </div>
 
@@ -133,7 +133,7 @@ const Banner = () => {
     //     <span className="visually-hidden">Next</span>
     //   </button>
     // </div>
-  );
-};
+  )
+}
 
-export default Banner;
+export default Banner

@@ -2,6 +2,7 @@ const express = require("express");
 const { ObjectId } = require("mongodb");
 const { connectToDb, getDb } = require("./db");
 const cors = require("cors");
+const cookieSession = require('cookie-session');
 
 const PORT = 3000;
 
@@ -57,6 +58,7 @@ app.get("/products", async (req, res) => {
 });
 
 app.get("/users", async (req, res) => {
+  // write(req.query)
   try {
     const users = await db
       .collection("users")
@@ -68,3 +70,5 @@ app.get("/users", async (req, res) => {
     handleError(res, "Something went wrong...");
   }
 });
+
+

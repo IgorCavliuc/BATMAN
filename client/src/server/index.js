@@ -37,19 +37,3 @@ export const getUser = async (login, password) => {
     return [];
   }
 };
-
-export const getSession = async () => {
-  // const params = {
-  //   login: login,
-  //   password: password,
-  // };
-  try {
-    const response = await axios.get("http://localhost:3000/get-session-data", {
-      username:'Honh'
-    });
-    return response.data;
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
-};
