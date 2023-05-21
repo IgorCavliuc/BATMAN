@@ -5,6 +5,11 @@ export const getAllNavigate = () => {
     .then((res) => res.json())
     .then((res) => res);
 };
+export const getAllCategories = () => {
+  return fetch("http://localhost:3000/categories")
+    .then((res) => res.json())
+    .then((res) => res);
+};
 export const getAllProducts = async (categoryKey) => {
   try {
     const response = await axios.get("http://localhost:3000/products", {

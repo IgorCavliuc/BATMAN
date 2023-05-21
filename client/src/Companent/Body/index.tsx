@@ -1,16 +1,25 @@
 import "./style/index.scss";
-import { Banner } from "../../ui";
+import { Banner, Benefits, FAQ } from "../../ui";
+import { connect } from "react-redux";
 
-const Body = () => {
+const Body = ({ user }: any) => {
+  const userMan = user[0];
+
   return (
     <div className="batman-store__container">
-      <p>Hi toda,</p>
+      <p>Hi toda, {userMan?.name}</p>
       <h1>What will you learn today?</h1>
       <div className="batman-store__container_banner">
         <Banner />
+        <Benefits />
       </div>
+      <FAQ />
     </div>
   );
 };
 
-export default Body;
+const mapStateToProps = (state: any) => ({
+  user: state?.userSlice.user,
+});
+
+export default connect(mapStateToProps)(Body);

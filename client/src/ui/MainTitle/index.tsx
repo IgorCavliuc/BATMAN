@@ -1,7 +1,4 @@
-
-
-
-import './style/index.scss'
+import "./style/index.scss";
 
 interface MainTitleProps {
   children: string;
@@ -9,7 +6,7 @@ interface MainTitleProps {
 
 const MainTitle = ({ children }: MainTitleProps) => (
   <div className={`batman-ui__main-title`}>
-    <p>{children}</p>
+    <h1>{children}</h1>
   </div>
 );
 

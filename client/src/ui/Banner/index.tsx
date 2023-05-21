@@ -1,7 +1,9 @@
-import './stytle.scss'
-const AvatarBanner = require('../img/litlle-batman.png')
-const TeamIco = require('../img/comand.png')
-const OfficeManIco = require('../img/avatar-man.png')
+import "./stytle.scss";
+import { Button } from "../";
+const AvatarBanner = require("../img/litlle-batman.png");
+const TeamIco = require("../img/comand.png");
+const OfficeManIco = require("../img/avatar-man.png");
+const WhiteArrowIco = require("../img/white-arrow.svg").default;
 
 const Banner = () => {
   return (
@@ -20,7 +22,7 @@ const Banner = () => {
                 Learn how artificial intelligence is reshaping the way marketing
                 is done at both large and small organizations.
               </p>
-              <button>Learn now</button>
+              <Button>Learn now</Button>
             </div>
             <img src={AvatarBanner} alt="AvatarBanner" />
           </div>
@@ -33,7 +35,7 @@ const Banner = () => {
                 Learn how artificial intelligence is reshaping the way marketing
                 is done at both large and small organizations.
               </p>
-              <button>Learn now</button>
+              <Button>Learn now</Button>
             </div>
             <img src={TeamIco} alt="TeamIco" />
           </div>
@@ -46,7 +48,7 @@ const Banner = () => {
                 Learn how artificial intelligence is reshaping the way marketing
                 is done at both large and small organizations.
               </p>
-              <button>Learn now</button>
+              <Button>Learn now</Button>
             </div>
             <img src={OfficeManIco} alt="AvatarBanner" />
           </div>
@@ -59,7 +61,13 @@ const Banner = () => {
         data-bs-slide="prev"
       >
         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">{"<"}</span>
+        <span className="visually-hidden">
+          <img
+            src={WhiteArrowIco}
+            alt="WhiteArrowIco"
+            style={{ transform: "rotate(180deg)", width: "20px" }}
+          />
+        </span>
       </button>
       <button
         className="carousel-control-next"
@@ -68,7 +76,13 @@ const Banner = () => {
         data-bs-slide="next"
       >
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden"> {">"}</span>
+        <span className="visually-hidden">
+          <img
+            src={WhiteArrowIco}
+            alt="WhiteArrowIco"
+            style={{ width: "20px" }}
+          />
+        </span>
       </button>
     </div>
 
@@ -82,7 +96,7 @@ const Banner = () => {
     //         Learn how artificial intelligence is reshaping the way marketing
     //         is done at both large and small organizations.
     //       </p>
-    //       <button>Learn now</button>
+    //       <utton>Learn now</utton>
     //     </div>
     //     <img src={AvatarBanner} alt="AvatarBanner" />
     //   </div>
@@ -95,7 +109,7 @@ const Banner = () => {
     //         Learn how artificial intelligence is reshaping the way marketing
     //         is done at both large and small organizations.
     //       </p>
-    //       <button>Learn now</button>
+    //       <utton>Learn now</utton>
     //     </div>
     //     <img src={TeamIco} alt="TeamIco" />
     //   </div>
@@ -108,32 +122,32 @@ const Banner = () => {
     //         Learn how artificial intelligence is reshaping the way marketing
     //         is done at both large and small organizations.
     //       </p>
-    //       <button>Learn now</button>
+    //       <utton>Learn now</utton>
     //     </div>
     //     <img src={OfficeManIco} alt="AvatarBanner" />
     //   </div>
     // </div>
     //   </div>
-    //   <button
+    //   <utton
     //     className="carousel-control-prev"
-    //     type="button"
+    //     type="utton"
     //     data-bs-target="#carouselExample"
     //     data-bs-slide="prev"
     //   >
     //     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
     //     <span className="visually-hidden">Previous</span>
-    //   </button>
-    //   <button
+    //   </utton>
+    //   <utton
     //     className="carousel-control-next"
-    //     type="button"
+    //     type="utton"
     //     data-bs-target="#carouselExample"
     //     data-bs-slide="next"
     //   >
     //     <span className="carousel-control-next-icon" aria-hidden="true"></span>
     //     <span className="visually-hidden">Next</span>
-    //   </button>
+    //   </utton>
     // </div>
-  )
-}
+  );
+};
 
-export default Banner
+export default Banner;

@@ -2,7 +2,7 @@ const express = require("express");
 const { ObjectId } = require("mongodb");
 const { connectToDb, getDb } = require("./db");
 const cors = require("cors");
-const cookieSession = require('cookie-session');
+const cookieSession = require("cookie-session");
 
 const PORT = 3000;
 
@@ -70,5 +70,16 @@ app.get("/users", async (req, res) => {
     handleError(res, "Something went wrong...");
   }
 });
-
-
+app.get("/categories", async (req, res) => {
+  // write(req.query)
+  try {
+    const users = await db
+      .collection("categories")
+      .find(req?.query)
+      .sort()
+      .toArray();
+    res.status(200).json(users);
+  } catch (error) {
+    handleError(res, "Something went wrong...");
+  }
+});

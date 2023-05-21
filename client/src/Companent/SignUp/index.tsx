@@ -2,9 +2,9 @@ import React from "react";
 import "./index.scss";
 import { Link } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { Button } from "../../ui";
 
 const AsigAdmin = require("../ico/mainlogo.png");
-
 
 type FormData = {
   name: string;
@@ -88,12 +88,9 @@ function SignUp() {
           <div style={{ color: "#3a48f5" }}>*{errors.password.message}</div>
         )}
         <div className="batman-ui--submit-button">
-          <button type="submit">Submit</button>
+          <Button children="Submit" />
           <Link to="/signin">Sign In</Link>
         </div>
-
-
-
       </form>
       <div className="batman-ui--sign-up-image">
         <img src={AsigAdmin} alt="Sign In" />
