@@ -7,7 +7,7 @@ const Body = ({ user }: any) => {
 
   return (
     <div className="batman-store__container">
-      <p>Hi toda, {userMan?.name}</p>
+      <p>Hi, {userMan?.name}! </p>
       <h1>What will you learn today?</h1>
       <div className="batman-store__container_banner">
         <Banner />

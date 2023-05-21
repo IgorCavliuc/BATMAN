@@ -13,9 +13,9 @@ const AddPost = () => {
       <MainTitle children={"Create post"} />
       <p>Choose one of the following categories</p>
       <h4>
-        Attention! Vf may not find in this list a category that matches the type
-        of your ad. If you want to submit an ad that does not fall under a
-        certain topic, please report it to technical support.
+        *Attention! You may not find a category in this list that matches the
+        type your ad. If you would like to post an ad that does not qualify for
+        specific topic, please report it to technical support.
       </h4>
       <div className="batman-store__create-post_categories-list">
         {categories?.map((item, i) => {

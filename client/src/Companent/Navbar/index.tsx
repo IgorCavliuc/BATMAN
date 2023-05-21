@@ -1,6 +1,6 @@
 import "./style/index.scss";
 import { NavigationList, NavigationProfile, Button } from "../../ui";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 const BatmanLogoIco = require("../ico/1.png");
@@ -11,9 +11,9 @@ const SignInIco = require("../ico/key.svg").default;
 const NonProfile = () => {
   return (
     <div className="batman-store__header-nonprofile">
-      <Link to="/signin">
+      <NavLink to="/signin">
         SignIn <img src={SignInIco} alt="SignInIco" />{" "}
-      </Link>
+      </NavLink>
     </div>
   );
 };
@@ -30,9 +30,16 @@ const Navbar = ({ user }: any) => {
             <img src={BatmanLogoIco} alt="BatmanLogoIco" />
           </NavLink>
         </div>
-        <Link to={"/create-post"}>
+        <NavLink
+          to={"/create-post"}
+          className={({ isActive }) =>
+            isActive
+              ? "batman-store__header-button--active"
+              : "batman-store__header-button"
+          }
+        >
           <Button children="Add post" theme="added" />
-        </Link>
+        </NavLink>
         <NavigationList />
       </div>
       {user.user[0] ? <NavigationProfile /> : <NonProfile />}
