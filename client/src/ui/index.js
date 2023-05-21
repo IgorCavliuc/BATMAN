@@ -8,6 +8,7 @@ import FAQ from "./FAQ";
 import Benefits from "./Benefits";
 import Button from "./Button";
 import CategoriesItem from "./CategoriesItem";
+import BenefitItem from "./BenefitItem";
 
 export {
   NavigationItem,
@@ -20,4 +21,5 @@ export {
   Button,
   Benefits,
   CategoriesItem,
+  BenefitItem,
 };
