@@ -8,26 +8,23 @@ interface PropNavigation {
 }
 
 const NavigationItem = ({ item }: PropNavigation) => {
-  const { code, img, value } = item;
-
+  const { code, img, value, url } = item;
 
   return (
     <NavLink
-    className={({ isActive }) =>
-      isActive
-        ? "batman-store__header-container_navigation-list-item--active"
-        : "batman-store__header-container_navigation-list-item"
-    }
-    to={`/${code ? code : ''}`}
-  >
-    <li>
-      <div className="batman-store__header-container_navigation-list-item-img">
-      {img ? <img src={img} alt="HomeIco" /> : null}
-      </div>
+      className={({ isActive }) =>
+        isActive
+          ? "batman-store__header-container_navigation-list-item--active"
+          : "batman-store__header-container_navigation-list-item"
+      }
+      to={url ?? ""}
+    >
+      <li>
+        <div className="batman-store__header-container_navigation-list-item-img">
+          {img ? <img src={img} alt="HomeIco" /> : null}
+        </div>
         {value}
-
-      
-    </li>
+      </li>
     </NavLink>
   );
 };

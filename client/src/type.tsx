@@ -2,21 +2,22 @@ export interface INavigationType {
   code: string;
   value: string;
   img: string;
+  url: string;
 }
 
 export interface IProduct {
   brand: string;
-  model:string,
+  model: string;
   category: string;
   description: string;
   discount: {
-    value:number,
-    type:string
+    value: number;
+    type: string;
   };
   id: number;
   images: string;
   price: number;
-  currency:string,
+  currency: string;
   rating: number;
   stock: number;
   thumbnail: string;

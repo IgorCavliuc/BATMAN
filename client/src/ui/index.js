@@ -9,6 +9,9 @@ import Benefits from "./Benefits";
 import Button from "./Button";
 import CategoriesItem from "./CategoriesItem";
 import BenefitItem from "./BenefitItem";
+import Input from "./Input";
+import Select from "./Select";
+import InputMedia from "./InputMedia";
 
 export {
   NavigationItem,
@@ -22,4 +25,7 @@ export {
   Benefits,
   CategoriesItem,
   BenefitItem,
+  Input,
+  Select,
+  InputMedia,
 };

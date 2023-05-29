@@ -14,6 +14,7 @@ import SignUp from "./Companent/SignUp";
 import "./clear.css";
 import "./index.css";
 import AddPost from "./Companent/AddPost";
+import { setAllNavigation } from "./Redux/Navigation/navigationSlice";
 
 export const AuthorisedAccount = ({ component }: any) => {
   const login = sessionStorage.getItem("users") ?? "";
@@ -38,6 +39,8 @@ export const NotAuthorisedAccount = ({ component }: any) => {
 
 function App({ user, getAllUser }: any) {
   const location = useLocation();
+
+  const sectionPath = location?.pathname?.split("section")?.[1]?.split("/")[1];
 
   useEffect(() => {
     const dataString = sessionStorage.getItem("users") ?? "";
@@ -82,12 +85,12 @@ function App({ user, getAllUser }: any) {
           path="/create-post"
           element={<AuthorisedAccount component={<AddPost />} />}
         />
-        {location?.pathname && (
-          <Route
-            path={location?.pathname}
-            element={<AuthorisedAccount component={<Product />} />}
-          />
-        )}
+        <Route
+          path={"/section/" + sectionPath}
+          element={
+            <AuthorisedAccount component={<Product name={sectionPath} />} />
+          }
+        />
       </Routes>
     </div>
   );
