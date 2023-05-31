@@ -1,7 +1,7 @@
 import "./index.scss";
-import { Input, InputMedia, MainTitle, Select } from "../../ui";
+import { Input, InputMedia, MainTitle, Select, TextArea } from "../../ui";
 import { useEffect } from "react";
-import { getAllCategories } from "../../server";
+import { addPost, getAllCategories } from "../../server/index.js";
 import CategoriesItem from "../../ui/CategoriesItem";
 import { connect } from "react-redux";
 import { Field, Formik, Form } from "formik";
@@ -10,6 +10,7 @@ import {
   setAllCategory,
   setCurrentCategory,
 } from "../../Redux/AddPost/createPostSlice";
+import { useNavigate } from "react-router-dom";
 
 const AddPost = ({
   allCategory,
@@ -20,6 +21,7 @@ const AddPost = ({
   useEffect(() => {
     getAllCategories().then((res) => setAllCategory(res));
   }, []);
+  const navigate = useNavigate();
 
   const initialValues = currentCategory?.form?.reduce((acc: any, item: any) => {
     if (Array.isArray(item)) {
@@ -33,7 +35,11 @@ const AddPost = ({
   }, {});
 
   const handleSubmit = (values: any) => {
-    console.log(values);
+    addPost(values).then((res: any) => {
+      if (res.statusText === "OK") {
+        navigate("/");
+      }
+    });
   };
 
   return (
@@ -70,10 +76,12 @@ const AddPost = ({
                             />
                           </div>
                         ) : subItem.type === "textarea" ? (
-                          <textarea
-                            id={subItem.code}
+                          <Field
                             name={subItem.code}
-                          ></textarea>
+                            component={TextArea}
+                            placeholder="Select an option"
+                            valuesName={subItem.code}
+                          />
                         ) : (
                           <div
                             key={j}
@@ -87,19 +95,6 @@ const AddPost = ({
                               placeholder="Select an option"
                               valuesName={subItem.code}
                             />
-                            {/*<select id="select">*/}
-                            {/*  {subItem.option.map(*/}
-                            {/*    (optionItem: any, k: number) => {*/}
-                            {/*      return (*/}
-                            {/*        <option key={k} value={optionItem.code}>*/}
-                            {/*          <div className="optionClass">*/}
-                            {/*            {optionItem.name}*/}
-                            {/*          </div>*/}
-                            {/*        </option>*/}
-                            {/*      );*/}
-                            {/*    }*/}
-                            {/*  )}*/}
-                            {/*</select>*/}
                           </div>
                         );
                       })}
@@ -114,8 +109,13 @@ const AddPost = ({
                           type={item.subtype ?? "text"}
                         />
                       ) : item.type === "textarea" ? (
-                        <textarea id={item.code} name={item.code}></textarea>
-                      ) : item.type === "attachment" ? (
+                        <Field
+                          name={item.code}
+                          component={TextArea}
+                          placeholder="Select an option"
+                          valuesName={item.code}
+                        />
+                      ) : item.type === "images" ? (
                         <Field
                           name={item.code}
                           component={InputMedia}

@@ -6,7 +6,7 @@ export interface INavigationType {
 }
 
 export interface IProduct {
-  brand: string;
+  brand: any;
   model: string;
   category: string;
   description: string;
@@ -15,7 +15,7 @@ export interface IProduct {
     type: string;
   };
   id: number;
-  images: string;
+  images: any;
   price: number;
   currency: string;
   rating: number;

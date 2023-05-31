@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Compressor from "compressorjs";
 
 import "./style/index.scss";
@@ -21,19 +20,42 @@ const InputMedia = ({ field, form, valuesName }) => {
   };
 
   const handleChange = (e) => {
-    const file = e.target.files[0];
+    const files = Array.from(e.target.files);
 
-    if (field.value?.length < 10) {
-      new Compressor(file, {
-        quality: 0.3,
-        success: (compressedFile) => {
-          convertBase64(compressedFile).then((base64) => {
-            const updatedArray = [base64, ...field.value];
-            form.setFieldValue(field.name, updatedArray);
-          });
-        },
-      });
+    if (files.length > 0) {
+      const promises = files.map(
+        (file) =>
+          new Promise((resolve, reject) => {
+            new Compressor(file, {
+              quality: 0.3,
+              success: (compressedFile) => {
+                convertBase64(compressedFile).then((base64) => {
+                  resolve(base64);
+                });
+              },
+              error: (error) => {
+                reject(error);
+              },
+            });
+          })
+      );
+
+      Promise.all(promises)
+        .then((base64Array) => {
+          const updatedArray = [...base64Array, ...field.value];
+          form.setFieldValue(field.name, updatedArray.slice(0, 10));
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
+  };
+
+  const changeRemove = (files) => {
+    form.setFieldValue(
+      field.name,
+      field.value?.filter((item) => item !== files)
+    );
   };
 
   return (
@@ -57,6 +79,7 @@ const InputMedia = ({ field, form, valuesName }) => {
                 type="file"
                 accept="image/*, .png, .jpg"
                 onChange={handleChange}
+                multiple
               />
               <Atach />
             </div>
@@ -67,6 +90,7 @@ const InputMedia = ({ field, form, valuesName }) => {
               <div
                 key={i}
                 className="agent-store-ui-input-media-list_input-block-img-list-block"
+                onClick={() => changeRemove(item)}
               >
                 <img src={item} alt="icon" />
               </div>

@@ -402,7 +402,7 @@ const Select = ({
                 active={i === keyIndex}
                 selected={option.code === value?.code}
                 value={field.value}
-                onChange={handleChange}
+                onChange={(selected: any) => handleChange(selected)}
                 onBlur={handleBlur}
               />
             ))}

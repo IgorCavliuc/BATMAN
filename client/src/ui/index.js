@@ -12,6 +12,7 @@ import BenefitItem from "./BenefitItem";
 import Input from "./Input";
 import Select from "./Select";
 import InputMedia from "./InputMedia";
+import TextArea from "./TextArea";
 
 export {
   NavigationItem,
@@ -28,4 +29,5 @@ export {
   Input,
   Select,
   InputMedia,
+  TextArea,
 };

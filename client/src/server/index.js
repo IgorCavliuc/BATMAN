@@ -14,10 +14,22 @@ export const getAllProducts = async (categoryKey) => {
   try {
     const response = await axios.get("http://localhost:3000/products", {
       params: {
-        category: categoryKey,
+        subcategory: categoryKey,
       },
     });
     return response.data;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};
+export const addPost = async (postData) => {
+  try {
+    const response = await axios.post(
+      "http://localhost:3000/create-post",
+      postData
+    );
+    return response;
   } catch (error) {
     console.error(error);
     return [];
